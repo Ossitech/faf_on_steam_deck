@@ -52,15 +52,6 @@ def init_pacman_keyring():
     print("Finished!")
 
 
-def clean_up():
-    print("Cleaning up...")
-
-    # remove existing downlords-faf-client repo
-    run("rm -rf downlords-faf-client", ignore_failure=True)
-
-    print("Finished!")
-
-
 def install_aur_package(name):
     print(f'Installing AUR-Package "{name}"...')
     run(f'git clone "https://aur.archlinux.org/{name}.git"')
@@ -169,8 +160,6 @@ def main():
     # install packages for AUR
     run("sudo pacman -S --needed --noconfirm base-devel git")
     run("sudo pacman -S --noconfirm holo-rel/linux-headers linux-neptune-headers holo-rel/linux-lts-headers glibc gcc gcc-libs fakeroot linux-api-headers libarchive")
-
-    clean_up()
 
     install_aur_package("yay")
     run("yay -S --noconfirm downlords-faf-client")
