@@ -67,7 +67,8 @@ To disable the write protection:
 This will ask for the password you did just set up.
 
 There is an issue with pacman that needs to be fixed in order to use it proberly.
-To edit the file enter this command:
+Some changes to the pacman configuration have to be made.
+To edit the pacman configuration file enter this command:
 
 `sudo nano /etc/pacman.conf`
 
@@ -125,8 +126,8 @@ This command may take few minutes to complete.
 yay is an so called "AUR helper". It works much like pacman and is used to install software. The difference is that you can install packages with yay, that are not found in the default repositories that pacman uses, but instead are part of the Arch User Repository (AUR).
 
 The FAF Client is part of the AUR. That's why we need yay to install it.
-To install yay, we need a bunch of dependencies that we install using pacman.
 Run these commands to install yay:
+
 Download:
 
 `git clone https://aur.archlinux.org/yay.git`
