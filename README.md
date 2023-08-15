@@ -7,8 +7,8 @@ You will be able to play the game and use alle features of Downlords FAF Client 
 The steps of this tutorial have to be repeated every time your Steam Deck receives an update for Steam OS! This can get very annoying soon so I encourage you to use my script that automates all these steps.
 To use the script simply use these commands:
 ```
-git clone LINK
-cd NAME
+git clone https://github.com/Ossitech/faf_on_steam_deck
+cd faf_on_steam_deck
 python install_faf.py
 ```
 Before running the script you will need to set a user password first, in case you didn't already do that.
