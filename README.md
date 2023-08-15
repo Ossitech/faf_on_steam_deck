@@ -1,7 +1,7 @@
 # FAF on the Steam Deck
 ## Introduction
 This tutorial will show you how to set up Downlords FAF Client on the Steam Deck.
-You will be able to play the game and use alle features of Downlords FAF Client but there are some compromises to remember.
+You will be able to play the game and use all the features of Downlords FAF Client but there are some compromises to remember.
 
 ## Automatic installation via my python script
 The steps of this tutorial have to be repeated every time your Steam Deck receives an update for Steam OS! This can get very annoying soon so I encourage you to use my script that automates all these steps.
