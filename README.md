@@ -129,14 +129,20 @@ The FAF Client is part of the AUR. That's why we need yay to install it.
 Run these commands to install yay:
 
 Download:
+```
+git clone https://aur.archlinux.org/yay.git
+```
 
-`git clone https://aur.archlinux.org/yay.git`
 Navigate into the downloaded folder:
+```
+cd yay
+```
 
-`cd yay`
 Install yay:
+```
+makepkg -si --noconfirm
+```
 
-`makepkg -si --noconfirm`
 Running the last command may require you to type in your root password.
 
 #### Downlord's FAF Client
