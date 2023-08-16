@@ -160,6 +160,8 @@ def main():
     # install packages for AUR
     run("sudo pacman -S --needed --noconfirm base-devel git")
     run("sudo pacman -S --noconfirm holo-rel/linux-headers linux-neptune-headers holo-rel/linux-lts-headers glibc gcc gcc-libs fakeroot linux-api-headers libarchive")
+    # Attempt to fix missing "alpm.h" during yay installation.
+    run("sudo pacman -S pacman")
 
     install_aur_package("yay")
     run("yay -S --noconfirm downlords-faf-client")
