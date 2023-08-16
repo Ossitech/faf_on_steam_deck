@@ -53,6 +53,16 @@ def init_pacman_keyring():
 
 
 def install_aur_package(name):
+    if os.path.exists(name):
+        print()
+        choice = input(f"A file or directory with the name {name} already exists! Remove it and continue? (Y/n): ")
+
+        if choice.lower() == "n":
+            print("Aborting installation...")
+            exit(1)
+        
+        run(f"rm -rf {name}")
+
     print(f'Installing AUR-Package "{name}"...')
     run(f'git clone "https://aur.archlinux.org/{name}.git"')
 
@@ -150,21 +160,23 @@ def set_faf_run_script():
 def main():
     os.chdir(HOME_PATH)
 
-    # make steamos writable
+    # Make steamos writable.
     run("sudo steamos-readonly disable")
 
     update_pacman_conf()
 
     init_pacman_keyring()
 
-    # install packages for AUR
+    # Initial update.
+    run("sudo pacman -Syu --noconfirm")
+
+    # Install packages for AUR.
     run("sudo pacman -S --needed --noconfirm base-devel git")
     run("sudo pacman -S --noconfirm holo-rel/linux-headers linux-neptune-headers holo-rel/linux-lts-headers glibc gcc gcc-libs fakeroot linux-api-headers libarchive")
     # Attempt to fix missing "alpm.h" during yay installation.
     run("sudo pacman -S pacman")
 
-    install_aur_package("yay")
-    run("yay -S --noconfirm downlords-faf-client")
+    install_aur_package("downlords-faf-client")
 
     install_dgVoodoo()
 

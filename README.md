@@ -36,20 +36,26 @@ I noticed that most of the missing effects, but not all of them, can be restored
 Now start Supreme Commander Forged Alliance and close it when you get to the main menu. Maybe the game asks you to set up a local userprofile for the game before you get to the main menu.
 Launching the Steam version of Supreme Commander with the provided settings has created a new file called run in this location:
 
-`/tmp/proton_deck/run`
+```
+/tmp/proton_deck/run
+```
 
 We need to copy this file to our home directory so that FAF can use it to start Supreme Commander Forged Alliance like Steam launches it.
 For this we need a terminal. Switch into the desktop mode of your steam deck and open a terminal.
 The terminal can be found by typing "terminal" or "console" in the start menu.
 Use this command to copy the file:
 
-`cp /tmp/proton_deck/run /home/deck/run`
+```
+cp /tmp/proton_deck/run /home/deck/run
+```
 
 The default username of the Steam Deck is `"deck"`. This name is NOT your steam user name but a local name for the operating system.
 If you have changed your linux username before replace every `"deck"` with your username.
 For instance if my name is `"name"` the command would look like this:
 
-`cp /tmp/proton_name/run /home/name/run`
+```
+cp /tmp/proton_name/run /home/name/run
+```
 #### Downlords FAF Client
 ##### pacman
 
@@ -59,18 +65,24 @@ For pacman to work on the Steam Deck the system write protection has to be disab
 
 To set up a root password for the deck user:
 
-`passwd`
+```
+passwd
+```
 
 To disable the write protection:
 
-`sudo steamos-readonly disable`
+```
+sudo steamos-readonly disable
+```
 This will ask for the password you did just set up.
 
 There is an issue with pacman that needs to be fixed in order to use it proberly.
 Some changes to the pacman configuration have to be made.
 To edit the pacman configuration file enter this command:
 
-`sudo nano /etc/pacman.conf`
+```
+sudo nano /etc/pacman.conf
+```
 
 Navigate through the file with the arrow keys. Go down in the file until you find a section that looks like this:
 ```
@@ -125,32 +137,29 @@ This command may take few minutes to complete.
 ##### yay
 yay is an so called "AUR helper". It works much like pacman and is used to install software. The difference is that you can install packages with yay, that are not found in the default repositories that pacman uses, but instead are part of the Arch User Repository (AUR).
 
-The FAF Client is part of the AUR. That's why we need yay to install it.
-Run these commands to install yay:
+
+
+Running the last command may require you to type in your root password.
+
+#### Downlord's FAF Client
+The FAF Client is part of the AUR (Arch User Repository) and is not an official package. That's why we need to install it differently.
+Run these commands to install it:
 
 Download:
 ```
-git clone https://aur.archlinux.org/yay.git
+git clone https://aur.archlinux.org/downlords-faf-client.git
 ```
 
 Navigate into the downloaded folder:
 ```
-cd yay
+cd downlords-faf-client
 ```
 
 Install yay:
 ```
 makepkg -si --noconfirm
 ```
-
-Running the last command may require you to type in your root password.
-
-#### Downlord's FAF Client
-Now that we have a working yay installation we can use yay to download and install the FAF Client.
-Run this command:
-
-`yay -S --noconfirm downlords-faf-client`
-Again, you may be asked for your root password.
+You may be asked for your root password.
 
 Now you should be able to find Downlords FAF Client under the "Games" category in the start menu or by typing FAF.
 Launch the FAF Client and log in.
@@ -164,3 +173,5 @@ It is importand that the line ends with `"%s"`!
 Again change the `"deck"` to your username in case you changed it.
 
 You can now close the settings menu and play FAF!
+
+You can use the Steam client to add FAF to your games library so you can run launch the FAF Client from the handheld mode.
