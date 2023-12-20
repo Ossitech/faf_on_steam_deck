@@ -143,7 +143,7 @@ def copy_faf_run_script():
                 found = True
         
         if not found:
-            input(f"The run file could not be found! Please make sure to launch SupCom FA at least once with the following launch parameters:\n{LAUNCH_PARAMETERS}\nPress Enter if you want to try again.")
+            input(f"The run file could not be found! Please launch SupCom FA from your steam library at least once with Proton 5.0-10.0 and the following launch parameters:\n{LAUNCH_PARAMETERS}\nPress Enter if you want to try again.")
 
     print("Finished!")
 
