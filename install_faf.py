@@ -13,6 +13,8 @@ def run(command, ignore_failure = False):
         if not ignore_failure:
             print("An error occurred during this command: " + command)
             exit()
+        return False
+    return True
 
 def update_pacman_conf():
     print("Updating /etc/pacman.conf...")
@@ -90,10 +92,16 @@ def install_dgVoodoo():
     run("mkdir voodooStuff", True)
     os.chdir("voodooStuff")
 
-    run("curl -L -O http://dege.freeweb.hu/dgVoodoo2/bin/dgVoodoo2_79_1.zip")
-    run("unzip dgVoodoo2_79_1.zip")
-    run("cp MS/x64/D3D9.dll /home/$USER/.faforever/bin/")
-    run("cp dgVoodoo.conf /home/$USER/.faforever/bin/")
+    if not os.path.exists("dgVoodoo2_79_1.zip"):
+        run("curl -L -O http://dege.freeweb.hu/dgVoodoo2/bin/dgVoodoo2_79_1.zip")
+        run("unzip dgVoodoo2_79_1.zip")
+        
+    success = run("cp MS/x64/D3D9.dll /home/$USER/.faforever/bin/", True)
+    success = success and run("cp dgVoodoo.conf /home/$USER/.faforever/bin/", True)
+
+    if not success:
+        print("The dgVoodoo install failed. FAF will maybe look not as good but will be playable.")
+        return
 
     os.chdir(cwd)
 
